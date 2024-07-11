@@ -1,0 +1,378 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+i {
+  cursor: pointer;
+}
+
+h1,
+ul {
+  margin: 0;
+  padding: 0;
+}
+.hidden {
+  display: none !important;
+}
+/* icon + number */
+/* #region  icon + number */
+.icon {
+  position: relative;
+
+  .icon-num {
+    padding: 3px 7px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(-100%);
+    color: white;
+    font-size: 0.7rem;
+    line-height: 1;
+    background: red;
+    border-radius: 50%;
+  }
+}
+.table-responsive{
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+ 
+}
+
+td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px;
+}
+th {
+  text-align: center !important; /* Căn giữa ngang */
+  vertical-align: middle; /* Căn giữa dọc */
+  padding: 10px; /* Khoảng cách bên trong ô (tuỳ chọn) */
+}
+/* #endregion */
+
+
+
+.right {
+  flex: 1;
+}
+
+header {
+  width: auto;
+  padding: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  background: linear-gradient(to top, rgb(44, 44, 44), rgb(170, 170, 170));
+
+  color: white;
+
+  .list-icons {
+    i {
+      margin-right: 30px;
+      padding: 10px;
+      cursor: pointer;
+
+      &:hover {
+        background: linear-gradient(to bottom, blue, black, blue);
+        border-radius: 50%;
+        box-shadow: 0px 0px 5px blue, 0px 0px 10px black;
+      }
+    }
+  }
+}
+nav {
+  padding: 0px 40px 0px 30px;
+  background: black;
+  color: white;
+  position: relative;
+  box-shadow: 0px 5px 20px rgb(40, 40, 40);
+  .title {
+    margin-bottom: 10px;
+    border-bottom: 1px solid white;
+    .fa-bars,
+    .fa-angles-left {
+      padding: 10px;
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, gray, black);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.1s linear;
+
+      &:hover {
+        background: linear-gradient(
+          135deg,
+          rgb(178, 177, 177),
+          rgb(30, 30, 30)
+        );
+      }
+    }
+    h1 {
+      padding: 20px 0px;
+
+      i {
+        padding: 15px;
+        background: linear-gradient(to top, blue, black, violet);
+        border-radius: 50%;
+        font-size: 1.7rem;
+      }
+    }
+  }
+
+  li {
+    padding: 10px 12px 12px;
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    cursor: pointer;
+
+    &.active {
+      color: rgb(6, 251, 83);
+    }
+    &:hover {
+      background: linear-gradient(to top, blue, black, violet);
+      border-radius: 5px;
+    }
+    &:hover::before {
+      content: "";
+      width: 100%;
+      height: 20px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: linear-gradient(to top, white, red, yellow, blue);
+      z-index: -1;
+      animation: aroundCircle 2s linear infinite;
+    }
+    &:hover::after {
+      content: "";
+      width: 95%;
+      height: 85%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: black;
+      z-index: -1;
+      border-radius: 5px;
+    }
+
+    i {
+      padding: 8px;
+    }
+  }
+  h1 span.dp-none,
+  li span.dp-none {
+    display: none;
+    transition: all 0.3s linear;
+  }
+}
+
+main {
+  height: calc(100vh - 76px);
+  background: #f1f2f7;
+  position: relative;
+}
+.box-message {
+  padding: 10px 80px;
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  font-size: 1.2rem;
+  &.success {
+    background: rgb(9, 207, 9);
+    color: white;
+  }
+  &.danger {
+    background: red;
+    color: white;
+  }
+  &.active {
+    animation: showMessage 3s ease-in-out;
+  }
+}
+
+.box {
+  display: none;
+}
+
+.box.active {
+  display: block;
+}
+
+.box-categories {
+  tr {
+    .td-img {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      img {
+        width: auto;
+        max-width: 100%;
+        object-fit: contain;
+      }
+    }
+    td:nth-child(1) {
+      width: 20px;
+    }
+    td:nth-child(2) {
+      max-width: 80px;
+    }
+  }
+}
+.box-product {
+  .tooltip-product-name {
+    max-width: 220px;
+    width: 220px;
+    position: relative;
+    .substring-text {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    &:hover .tooltip-full-name {
+      display: block;
+    }
+    .tooltip-full-name {
+      padding: 2px 10px;
+      max-width: 200%;
+      width: auto;
+      position: absolute;
+      bottom: 0%;
+      left: 100%;
+      transform: translateY();
+      background: blue;
+      color: white;
+      white-space: nowrap;
+      border-radius: 5px;
+      z-index: 1;
+      display: none;
+    }
+
+    .tooltip-full-name:before {
+      content: "";
+      width: 15px;
+      height: 15px;
+      background: blue;
+      position: absolute;
+      top: 30%;
+      left: -8px;
+      transform: rotate(45deg) translateY(-40%);
+      z-index: -1;
+    }
+  }
+  img {
+    height: auto;
+    width: 50px;
+  }
+}
+
+/* laptop */
+@media screen and (min-width: 768px) {
+  .admin {
+    display: flex;
+    nav {
+      height: 100vh;
+     
+    }
+    .icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(50%, 20%);
+    }
+  }
+}
+/* mobile */
+@media screen and (max-width: 767px) {
+  nav {
+    padding: 10px;
+    position: unset;
+
+    .title {
+      margin: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: none;
+
+      h1 {
+        padding: 10px 0;
+      }
+      .fa-bars,
+      .fa-angles-left {
+        position: unset;
+        height: 44px;
+        background: linear-gradient(
+          135deg,
+          rgb(157, 155, 155),
+          rgb(74, 74, 74)
+        );
+      }
+    }
+
+    .nav-lists {
+      display: none;
+    }
+  }
+}
+
+@keyframes aroundCircle {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes aroundCircle2 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes showMessage {
+  0% {
+    top: -120px;
+    opacity: 0;
+  }
+  25% {
+    top: -25px;
+    opacity: 1;
+  }
+  90% {
+    top: -25px;
+    opacity: 1;
+  }
+  100% {
+    top: -120px;
+    opacity: 0;
+  }
+}

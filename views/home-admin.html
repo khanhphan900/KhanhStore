@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous"
+    />
+    <!-- Font Awesome ICON v6.5.2 -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="/css/home-admin.css" />
+  </head>
+
+  <body>
+    <div class="admin">
+    <div class="left">
+      <nav>
+        <div class="title">
+          <h1><i class="fa-solid fa-store"></i> <span class="hidden">STORE</span></h1>
+          <div class="icon">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-angles-left hidden"></i>
+          </div> 
+        </div>
+        <ul class="nav-lists">
+          <li class="nav-li"><i class="fa-solid fa-house"></i> <span class="hidden">Home</span></li>
+          <li class="nav-li"><i class="fa-solid fa-table-list"></i> <span class="hidden">Category</span></li>
+          <li class="nav-li"><i class="fa-brands fa-product-hunt"></i> <span class="hidden">Product</span></li>
+          <li class="nav-li"><i class="fa-solid fa-users"></i> <span class="hidden">Customers</span></li>
+          <li class="nav-li"><i class="fa-solid fa-user-group"></i></i> <span class="hidden">Staff</span></li>
+          <li class="nav-li"><i class="fa-solid fa-user-gear"></i> <span class="hidden">User</span class="hidden"></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="right">
+      <header>
+        <div class="list-icons">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          
+          <span class="icon bell">
+            <i class="fa-solid fa-bell"></i> <span class="icon-num">2</span>
+          </span>
+          <span class="icon email">
+            <i class="fa-solid fa-envelope"></i> <span class="icon-num">8</span>
+          </span>
+        </div>
+        <div class="exit">
+          <i id="out-web" class="fa-solid fa-right-from-bracket text-da"></i>
+        </div>
+      </header>
+      <main>
+        <div id="box-message" class="box-message">
+        </div>
+        <div class="box box-home">
+          <h1>HOME ADMIN</h1>
+        </div>
+        <div class="box box-categories pt-2 px-5">
+            <div class="row px-5 py-2 align-items-center">
+              <div class="col-md-4 col-12 h3 m-0 text-lg-start text-center">List Categories</div>
+  
+              <div class="col-md-4 col-12 p-lg-0 p-2">
+                <form id="form-search" class="d-flex">
+                <input id="search-content" class="form-control me-2 p-2" type="search" placeholder="Search name" aria-label="Search">
+                <button id="search-btn" class="btn btn-primary" type="submit">Search</button>
+              </form>
+            </div>
+                <div class="col-md-4 col-12 text-lg-end text-center p-2"><button class="btn btn-success"  data-bs-toggle="modal"  data-bs-target="#categoryAddModal" onclick=showCategoryForm()>Add category</button></div>
+            </div>
+            <div  style="height:350px">
+              <table class="table table-hover table-striped mt-3 overflow-scroll overflow-y-auto">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Logo</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-categories">
+                </tbody>
+              </table>
+            </div>
+            <div aria-label="Page navigation example">
+              <div id="pagination-category" class="pagination justify-content-center">
+                
+              </div>
+            </div>
+        </div>
+        <div class="box box-product pt-2 px-5">
+          <div class="row px-5 py-2 align-items-center">
+            <div class="col-md-4 col-12 h3 m-0 text-lg-start text-center">List Products</div>
+
+            <div class="col-md-4 col-12 p-lg-0 p-2">
+              <form id="form-search-product" class="d-flex">
+              <input id="search-product-content" class="form-control me-2 p-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-primary" type="submit">Search</button>
+            </form>
+          </div>
+              <div class="col-md-4 col-12 text-lg-end text-center p-2"><button class="btn btn-success"  data-bs-toggle="modal"  data-bs-target="#productAddModal" onclick=handleIdProduct() >Add product</button></div>
+          </div>
+          <div  class="table-responsive">
+            <table class="table table-hover table-striped mt-3 overflow-scroll overflow-y-auto">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Img</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-product">
+              </tbody>
+            </table>
+          </div>
+          <div aria-label="Page navigation example">
+            <div id="pagination-product" class="pagination justify-content-center">
+              
+            </div>
+          </div>
+        </div>
+        <div class="box box-cutomters">
+          <h1>Customers</h1>
+        </div>
+        <div class="box box-staff">
+          <h1>Staff</h1>
+        </div>
+        <div class="box box-staff">
+          <h1>User</h1>
+        </div>
+      </main>
+    </div>
+<!-- Modal Category Create -->
+<div class="modal fade" id="categoryAddModal" tabindex="-1" aria-labelledby="categoryAddModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form id="form-category" class="g-3 needs-validation" novalidate>
+        <div class="modal-header">
+          <h5 class="col-11 ps-5 modal-title text-success text-center" id="categoryAddModalLabel"></h5>
+          <button type="button" class="col-1 btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="id-category">
+          <div class="row mb-3 justify-content-center">
+            <div class="col-9" id="logo-category">
+              <label for="input-file-category" class="form-label">Logo Category </label>
+              <input id="input-file-category" type="file" class="form-control" aria-label="file example" onchange=handleFileChange(event) required>
+              <div id="valid-input-file" class="invalid-feedback">Example invalid form file feedback</div>
+            </div>
+            <div class="col-3 d-flex justify-content-center p-2"><img id="img-category" class="rounded-2" style="height: auto;width: 70px;" alt=""></div>
+          </div>
+          <div class="position-relative">
+            <label for="name-category" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name-category" placeholder="Enter category name" required>
+            <div class="valid-tooltip">
+              Looks good!
+            </div>
+          </div>
+          <div class="position-relative">
+            <label for="address-category" class="form-label">Address</label>
+            <input type="text" class="form-control" id="address-category" placeholder="Enter address" required>
+            <div class="valid-tooltip">
+              Looks good!
+            </div>
+          </div>
+          <div class="position-relative">
+            <label for="phone-category" class="form-label">Phone</label>
+            <input type="text" class="form-control" id="phone-category" placeholder="Enter phone number" required>
+            <div class="valid-tooltip">
+              Looks good!
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button class="btn btn-primary" type="submit" id="btn-submit" onclick=addCategory()></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Modal Category Delete -->
+<div class="modal fade" id="deleteCategory" tabindex="-1" aria-labelledby="deleteCategoryLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-danger" id="deleteCategoryLabel">Are you sure you want to delete this product?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div id="category-del-content">
+        <div class="d-flex justify-content-center"><img class="w-25 h-25" id="category-img-del" src="" alt=""></div>
+        <div class="h3 text-center" id="category-name-del"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" onclick= handleDelCategory()>Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Product Create -->
+<div class="modal fade" id="productAddModal" tabindex="-1" aria-labelledby="productAddModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form id="form-product" class="g-3 needs-validation" novalidate>
+        <div class="modal-header">
+          <h5 class="col-11 ps-5 modal-title text-success text-center" id="productAddModalLabel"></h5>
+          <button type="button" class="col-1 btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="id-product">
+          <div class="row mb-3 justify-content-center">
+            <div class="col-9" id="logo-product">
+              <label for="input-file-product" class="form-label">Img Product </label>
+              <input id="input-file-product" type="file" class="form-control" aria-label="file example" onchange=handleFileChange(event) required>
+              <div id="valid-input-file" class="invalid-feedback">Example invalid form file feedback</div>
+            </div>
+            <div class="col-3 d-flex justify-content-center p-2"><img id="img-product" class="rounded-2" style="height: auto;width: 70px;" alt=""></div>
+          </div>
+          <div class="position-relative">
+            <label for="name-product" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name-product" required>
+            <div class="valid-tooltip">
+              Looks good!
+            </div>
+          </div>
+          <div class="position-relative">
+            <label for="quantity-product" class="form-label">Quantity</label>
+            <input type="text" class="form-control" id="quantity-product" required>
+            <div class="valid-tooltip">
+              Looks good!
+            </div>
+          </div>
+          <div class="position-relative">
+            <label for="price-product" class="form-label">Price</label>
+            <input type="text" class="form-control" id="price-product" required>
+            <div class="valid-tooltip">
+              Looks good!
+            </div>
+          </div>
+          <div class="position-relative">
+            <label for="category-product" class="form-label">Category</label>
+            <input type="text" class="form-control" id="category-product" required>
+            <div class="valid-tooltip">
+              Looks good!
+            </div>
+          </div>
+          <div class="position-relative">
+            <label for="category-product" class="form-label">Category</label>
+            <select id="select-category-product" class="form-select" aria-label="Default select example">
+            </select>
+            <div class="valid-tooltip">
+              Looks good!
+            </div>
+          </div>    
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button class="btn btn-primary" type="submit" id="btn-submit-product" onclick=addProduct()></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- #region Modal Prodcut Delete -->
+<div class="modal fade" id="deleteProduct" tabindex="-1" aria-labelledby="deleteProductLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-danger" id="deleteProductLabel">Are you sure you want to delete this product?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+    
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" onclick= deleteProduct()>Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <!-- Firebase Storage -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script> -->
+
+    <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+    <script src="/js/firebase-config.js"></script>
+    <script src="/js/api.js"></script>
+    <script src="/js/validate-bs5.js"></script>
+    <script src="/js/login.js"></script>
+    <script src="/js/home-admin.js"></script>
+    <script src="/js/pagination.js"></script>
+    <script src="/js/home-category.js"></script>
+    <script src="/js/home-product.js"></script>
+
+  </body>
+</html>

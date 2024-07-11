@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+i {
+  cursor: pointer;
+}
+
+body {
+  height: 100vh;
+  background: url("https://img.freepik.com/free-vector/shop-assistant-showing-phone-customer-electronics-store-young-woman-visitor-listening-smartphone-advantage-man-choosing-new-digital-device-hanged-wall_575670-1320.jpg?size=626&ext=jpg&ga=GA1.1.1399812610.1719048527&semt=ais_hybrid");
+  background-size: 100% 100%;
+  position: relative;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+  }
+  .card {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(255, 255, 255);
+  }
+}
