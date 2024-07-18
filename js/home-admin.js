@@ -23,24 +23,25 @@ document.addEventListener("DOMContentLoaded", function () {
     boxes[index].classList.add("active");
   }
 
+  navList.forEach((element, index) =>
+    element.addEventListener("click", (e) => {
+      navList.forEach((element) => element.classList.remove("active"));
+      boxes.forEach((element) => element.classList.remove("active"));
 
-   navList.forEach((element,index) => element.addEventListener("click", (e) => {
-          navList.forEach(element => element.classList.remove("active"));
-          boxes.forEach(element => element.classList.remove("active"));
-
-          element.classList.add("active");
-          boxes[index].classList.add("active");
-          localStorage.setItem("index",index);
-   }))
-   showBox();
+      element.classList.add("active");
+      boxes[index].classList.add("active");
+      localStorage.setItem("index", index);
+    })
+  );
+  showBox();
 
   //#endregion
 
   //#region Out web admin
-  const iconOutWeb = document.getElementById("out-web");
-  iconOutWeb.addEventListener("click", () => {
-    window.location.href = "login.html";
-  });
+  // const iconOutWeb = document.getElementById("out-web");
+  // iconOutWeb.addEventListener("click", () => {
+  //   window.location.href = "login.html";
+  // });
   //#endregion
 });
 
@@ -57,3 +58,43 @@ function showMessage(status, message) {
   boxMessage.innerHTML = message;
   boxMessage.classList.add("active");
 }
+
+//#region InfoUser
+
+// login
+
+let user = JSON.parse(localStorage.getItem("user"));
+const username = document.querySelector(".username");
+const imgUser = document.getElementById("img-user");
+if (user) {
+  username.innerText = user.name;
+  imgUser.src = user.img;
+} else {
+  username.innerText = "";
+}
+
+// logout
+const logout = document.querySelector(".logout");
+const infoUser = document.querySelector(".info-user");
+logout.addEventListener("click", (e) => {
+  e.stopPropagation();
+  let userLocal = JSON.parse(localStorage.getItem("user"));
+  // Save Cart user
+  getByEmail(urlUser, userLocal.email)
+    .then((data) => {
+      if (data) {
+        data.cart = userLocal.cart;
+        updateElement(urlUser, data);
+      } else {
+        console.log("User not found");
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+
+  // remove User local
+  localStorage.removeItem("user");
+  window.location.href = "login.html";
+});
+//#endregion

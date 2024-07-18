@@ -27,6 +27,7 @@ body {
   background: url("https://img.freepik.com/free-vector/shop-assistant-showing-phone-customer-electronics-store-young-woman-visitor-listening-smartphone-advantage-man-choosing-new-digital-device-hanged-wall_575670-1320.jpg?size=626&ext=jpg&ga=GA1.1.1399812610.1719048527&semt=ais_hybrid");
   background-size: 100% 100%;
   position: relative;
+  overflow-x: hidden;
 
   &::before {
     content: "";

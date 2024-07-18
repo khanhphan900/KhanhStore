@@ -1,0 +1,49 @@
+p {
+  margin: 0;
+}
+#name-product {
+  text-shadow: 5px 5px 5px black;
+}
+
+.box-voucher {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQdb1w4P2LCaI_kR6djdByFwdHuoczWbcVO5BuSW_ouYePs03p");
+  background-size: 100% 100%;
+}
+
+.promotion {
+  margin-top: 10px;
+  padding: 10px;
+  background: linear-gradient(to right, red, violet, rgb(2, 174, 248), violet, blue);
+  border-radius: 7px;
+
+  .countdown {
+    span {
+      font-weight: bold;
+    }
+  }
+  .product-number {
+    position: relative;
+
+    .total {
+      height: 15px;
+      background: white;
+      border: 1px solid white;
+    }
+    .current,
+    .text {
+      position: absolute;
+    }
+    .current {
+      width: 40%;
+      height: 15px;
+      top: 0px;
+      background: orange;
+    }
+    .text {
+      top: -2.5px;
+      right: 50px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+  }
+}

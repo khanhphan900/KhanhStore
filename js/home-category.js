@@ -41,11 +41,10 @@ function showCategories(data) {
           <td>${item.address}</td>
           <td>${item.phone}</td>
           <td>
-              <button class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#categoryAddModal" 
-              onclick=handleIdEditCategory(${item.id})>Edit</button> 
-              <button class="btn btn-danger"  data-bs-toggle="modal"  data-bs-target="#deleteCategory" onclick=handleIdDelCategory(${
-                item.id
-              })>Delete</button>
+            <i class="fa-solid fa-pen-to-square text-warning h4" data-bs-toggle="modal" data-bs-target="#categoryAddModal" 
+              onclick=handleIdEditCategory(${item.id})></i>
+            <i class="fa-solid fa-trash text-danger h4" data-bs-toggle="modal"  data-bs-target="#deleteCategory" 
+              onclick=handleIdDelCategory(${item.id})></i>
           </td> 
       `;
     tbodyCategory.appendChild(tr);

@@ -42,12 +42,10 @@ function showProducts(data) {
           <td>${price}</td>
           <td>${item.category}</td>
           <td>
-              <button class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#productAddModal" onclick=handleIdProduct(${
-                item.id
-              })>Edit</button> 
-              <button class="btn btn-danger" data-bs-toggle="modal"  data-bs-target="#deleteProduct" onclick=handleIdDelProduct(${
-                item.id
-              })>Delete</button>
+            <i class="fa-solid fa-pen-to-square text-warning h4" data-bs-toggle="modal" data-bs-target="#productAddModal" 
+              onclick=handleIdProduct(${item.id})></i>
+            <i class="fa-solid fa-trash text-danger h4" data-bs-toggle="modal" data-bs-target="#deleteProduct" 
+              onclick=handleIdDelProduct(${item.id})></i>
           </td> 
       `;
     tbodyProduct.appendChild(tr);

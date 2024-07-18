@@ -1,5 +1,7 @@
 const urlProduct = "http://localhost:3000/products";
 const urlCategory = "http://localhost:3000/categories";
+const urlAdvertisement = "http://localhost:3000/advertisements";
+const urlUser = "http://localhost:3000/users";
 
 let isInitialized = false;
 
@@ -25,7 +27,7 @@ async function getElementById(url, id, callback) {
   }
 }
 
-// GET PRODUCT BY ID
+// GET BY ID
 async function getProductById(url, id, callback) {
   try {
     let data;
@@ -33,8 +35,19 @@ async function getProductById(url, id, callback) {
       const response = await fetch(`${url}/${id}`);
       data = await response.json();
     }
-    
+
     callback(data);
+  } catch (error) {
+    console.error("Lỗi:", error);
+  }
+}
+
+//#region GET BY EMAIL
+async function getByEmail(url, email) {
+  try {
+    const response = await fetch(url);
+    data = await response.json();
+    return data.find((element) => element.email == email);
   } catch (error) {
     console.error("Lỗi:", error);
   }

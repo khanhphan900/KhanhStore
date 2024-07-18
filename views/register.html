@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>Register</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -20,40 +20,36 @@
   </head>
 
   <body class="w-100 d-flex justify-content-center align-items-center">
-    <div class="card m-auto p-3">
+    <div class="card m-auto p-3" style="width: 350px">
       <h1 class="card-header text-center">Register</h1>
       <div class="card-body">
         <form id="register">
           <div class="mb-3">
-            <label for="email-reg" class="form-label">Email address</label>
-            <input
-              type="email"
-              class="form-control"
-              id="email-reg"
-              aria-describedby="emailHelp"
-            />
-            <div id="emailHelp" class="form-text text-warning">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" required />
+            <div id="email-help" class="form-text text-warning">
               We'll never share your email with anyone else.
             </div>
           </div>
           <div class="mb-3">
             <label for="pass-reg" class="form-label">Password</label>
-            <input type="password" class="form-control" id="pass-reg" />
-          </div>
-          <div class="mb-3">
-            <label for="pass-reg-check" class="form-label">Pre Password</label>
-            <input type="password" class="form-control" id="pass-reg-check" />
-          </div>
-          <div class="mb-3 form-check">
             <input
-              type="checkbox"
-              class="form-check-input"
-              id="exampleCheck1"
+              type="password"
+              class="form-control"
+              id="pass-reg"
+              required
             />
-            <label class="form-check-label" for="exampleCheck1"
-              >Check me out</label
-            >
           </div>
+          <div>
+            <label for="pass-reg-check" class="form-label">Pre Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="pass-reg-check"
+              required
+            />
+          </div>
+          <div class="form-check mt-1 mb-2 p-0 text-danger small"></div>
           <div class="foot text-center">
             <button type="submit" class="btn btn-primary mb-3 w-100">
               Submit
@@ -75,6 +71,7 @@
       integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
       crossorigin="anonymous"
     ></script>
-    <script src="/js/login.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/login.js"></script>
   </body>
 </html>

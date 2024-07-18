@@ -65,3 +65,8 @@ function handleProductPage(nextPage) {
   currentPage = nextPage;
   getAll(urlProduct, showProducts);
 }
+
+function handleOrderPage(nextPage) {
+  currentPage = nextPage;
+  getAll(urlUser, showOrders)
+}
