@@ -47,7 +47,7 @@
               <div class="row">
                 <ul class="nav-header">
                   <li class="item-header">
-                    <a href="#"
+                    <a onclick="showData()"
                       ><i class="fa-solid fa-mobile-screen-button"></i> Điện
                       thoại</a
                     >
@@ -72,9 +72,56 @@
             <div
               class="item-header-3 d-flex align-items-center justify-content-end"
             >
+              <div class="box-login">
+                <div class="user">
+                  <div class="box-img-user d-none">
+                    <img id="img-user" src="" alt="" />
+                  </div>
+                  <ul class="info-user">
+                    <li class="text-center h6 m-0">
+                      Hi
+                      <span class="username"></span>
+                    </li>
+                    <li>
+                      <i class="fa-solid fa-gear"></i>
+                      Setting
+                    </li>
+                    <li class="logout">
+                      <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất
+                    </li>
+                  </ul>
+                </div>
+                <a
+                  href="http://127.0.0.1:5500/views/login.html"
+                  class="text-white"
+                >
+                  <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                </a>
+              </div>
               <div class="box-cart">
-                <i class="fa-solid fa-cart-plus"></i>
-                <span class="cart-text">5</span>
+                <div
+                  class="cart-icon"
+                  data-bs-toggle="modal"
+                  data-bs-target="#cartModal"
+                >
+                  <i
+                    class="fa-solid fa-cart-plus"
+                    onclick="handleModalCart()"
+                  ></i>
+                </div>
+                <span class="cart-text"></span>
+                <div class="dropdown-menu p-0">
+                  <div class="text-danger text-center no-product h5 p-2">
+                    Chưa có sản phẩm trong giỏ!
+                  </div>
+                  <ul class="modal-list-product p-0"></ul>
+                  <div
+                    class="show-total-product px-4 py-2 d-flex justify-content-between align-items-center"
+                  >
+                    <div class="text-black h6">Tống số tiền:</div>
+                    <div class="text-danger total-price h6"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -182,10 +229,179 @@
         </div>
       </main>
     </div>
-    <footer>
-      <!-- place footer here -->
-    </footer>
-    <!-- Bootstrap JavaScript Libraries -->
+    <!-- Modal Cart-->
+    <div
+      class="modal fade"
+      id="cartModal"
+      tabindex="-1"
+      aria-labelledby="cartModalLabel"
+      aria-hidden="true"
+      style="--bs-modal-width: 900px"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-black" id="cartModalLabel">
+              Sản phẩm trong giỏ hàng
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-cart">
+            <div class="text-danger text-center no-product h5 py-4">
+              Chưa có sản phẩm trong giỏ!
+            </div>
+            <div class="row show-total-product">
+              <div class="col-lg col-12">
+                <ul class="modal-list-product"></ul>
+                <div
+                  class="px-4 py-2 d-flex justify-content-between align-items-center"
+                >
+                  <div class="text-black h6">Tống số tiền:</div>
+                  <div class="text-danger total-price h6"></div>
+                </div>
+              </div>
+              <div class="col-lg col-12 px-4">
+                <h5 class="text-center py-2">Thông tin thanh toán</h5>
+                <div>
+                  <div class="row mb-1">
+                    <label
+                      for="name-customer"
+                      class="col-3 form-label m-0 d-flex align-items-center"
+                    >
+                      Name:</label
+                    >
+                    <div class="col-8">
+                      <input
+                        type="input"
+                        class="form-control"
+                        id="name-customer"
+                        placeholder="Nhập tên của bạn"
+                      />
+                    </div>
+                  </div>
+                  <div class="row mb-1">
+                    <label
+                      for="phone-customer"
+                      class="col-3 form-label m-0 d-flex align-items-center"
+                      >Phone:</label
+                    >
+                    <div class="col-8">
+                      <input
+                        type="input"
+                        class="form-control"
+                        id="phone-customer"
+                        placeholder="Nhập số điện thoại"
+                      />
+                    </div>
+                  </div>
+                  <div class="row mb-1">
+                    <label
+                      for="address-customer"
+                      class="col-3 form-label m-0 d-flex align-items-center"
+                      >Address:</label
+                    >
+                    <div class="col-8">
+                      <input
+                        type="input"
+                        class="form-control"
+                        id="address-customer"
+                        placeholder="Nhập địa chỉ"
+                      />
+                    </div>
+                  </div>
+                  <div class="row mb-1">
+                    <label
+                      for="voucher-customer"
+                      class="col-3 form-label m-0 d-flex align-items-center"
+                      >Voucher:</label
+                    >
+                    <div class="col-8">
+                      <input
+                        type="input"
+                        class="form-control"
+                        id="voucher"
+                        placeholder="XXX-XXX-XXX"
+                      />
+                    </div>
+                  </div>
+                  <div class="row mb-1">
+                    <label
+                      class="col-3 form-label m-0 d-flex align-items-center"
+                      >Logistic:</label
+                    >
+                    <div class="col-8">
+                      <select
+                        id="logistic"
+                        name="logistic"
+                        class="form-select"
+                        aria-label="Default select example"
+                      >
+                        <option value="0" selected>Hỏa tốc</option>
+                        <option value="1">Giao hàng thường</option>
+                      </select>
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="d-flex p-0 justify-content-between">
+                    <div class="d-flex p-0 align-items-center h5">
+                      Tổng tiền:
+                    </div>
+                    <div
+                      id="total-pay"
+                      class="total-price h5 d-flex p-0 pe-5 align-items-center justify-content-end text-danger"
+                    ></div>
+                  </div>
+                  <div class="d-flex p-0 justify-content-between">
+                    <div class="d-flex p-0 align-items-center">Voucher:</div>
+                    <div
+                      id="voucher-type"
+                      class="total-price h5 d-flex p-0 pe-5 align-items-center justify-content-end"
+                    ></div>
+                  </div>
+                  <div class="d-flex p-0 justify-content-between">
+                    <div class="d-flex p-0 align-items-center">Phí ship:</div>
+                    <div
+                      id="transport-fee"
+                      class="total-price h5 d-flex p-0 pe-5 align-items-center justify-content-end"
+                    ></div>
+                  </div>
+                  <div class="d-flex p-0 justify-content-between">
+                    <div class="d-flex h5 p-0 align-items-center">
+                      Thanh toán:
+                    </div>
+                    <div
+                      id="pay"
+                      class="total-price h5 d-flex p-0 pe-5 align-items-center justify-content-end text-danger"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="handleSubmitModal()"
+            >
+              Thanh toán
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -198,6 +414,9 @@
       crossorigin="anonymous"
     ></script>
     <script src="../js/api.js"></script>
-    <script src="../js/product.js"></script>
+    <script src="../js/home/product.js"></script>
+    <script src="../js/home/cart.js"></script>
+    <script src="../js/home/infoCustomer.js"></script>
+    <script src="../js/home/order.js"></script>
   </body>
 </html>

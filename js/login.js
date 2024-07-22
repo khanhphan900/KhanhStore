@@ -3,8 +3,14 @@ const imgDefault =
 
 //#region Register
 const homeDelUser = document.getElementById("del-user");
+let dataUser = null;
 
-registerForm();
+getAll(urlCustomer, getDataUser);
+function getDataUser(data) {
+  dataUser = data;
+  registerForm();
+}
+
 function registerForm() {
   const registerForm = document.getElementById("register");
   if (registerForm) {
@@ -20,15 +26,19 @@ function registerForm() {
       }
       let username = email.split("@")[0];
       let user = {
+        id: (dataUser.length + 1).toString(),
         email: email,
         password: password,
         img: imgDefault,
-        position: "member",
+        role: "member",
         name: username,
-        cart: [],
       };
-
-      createElement(urlUser, user);
+      let cart = {
+        id: user.id,
+        listProduct: [],
+      };
+      createElement(urlCustomer, user);
+      createElement(urlCart, cart);
       window.location.href = "login.html";
     });
   }
@@ -47,6 +57,7 @@ function checkValid(pass, prePass) {
 //#endregion
 
 //#region Login
+let customer = null;
 loginForm();
 function loginForm() {
   const loginForm = document.getElementById("login");
@@ -59,7 +70,7 @@ function loginForm() {
       // getByEmail(urlUser, email, checkLogin);
       const text = document.querySelector(".small");
 
-      getByEmail(urlUser, email)
+      getByEmail(urlCustomer, email)
         .then((data) => {
           if (data) {
             user = data;
@@ -67,29 +78,12 @@ function loginForm() {
               text.innerText = "Incorrect password";
               return;
             }
-            delete user.password;
+
             text.innerText = "";
-            let cart = JSON.parse(localStorage.getItem("cart"));
-            if (cart && cart.length) {
-              cart.forEach((item) => {
-                let isExists = false;
-                let index = null;
-                user.cart.forEach((itemUser, indexUser) => {
-                  if (itemUser.id == item.id) {
-                    isExists = true;
-                    index = indexUser;
-                  }
-                });
-                isExists ? (user.cart[index].sl += 1) : user.cart.push(item);
-              });
-            }
-            localStorage.removeItem("cart");
-            localStorage.setItem("user", JSON.stringify(user));
-            if (user.position === "member") {
-              window.location.href = "home.html";
-            } else {
-              window.location.href = "home-admin.html";
-            }
+            // Save customer
+            delete user.password;
+            customer = user;
+            getAll(urlCart, setupCart);
           } else {
             console.log("User not found");
           }
@@ -101,6 +95,46 @@ function loginForm() {
   }
 }
 
+function setupCart(data) {
+  let cartLocal = JSON.parse(localStorage.getItem("cart"));
+  let cartUser = null;
+  data.forEach((cart) => {
+    if (parseInt(cart.id) == parseInt(user.id)) {
+      cartUser = cart;
+    }
+  });
+  if (!cartUser) {
+    cartUser = {
+      id: user.id,
+      listProduct: [],
+    };
+  }
+  if (cartLocal) {
+    cartLocal.listProduct.forEach((productLocal) => {
+      let isExists = false;
+      let index = null;
+      if (cartUser.listProduct.length)
+        cartUser.listProduct.forEach((product, indexP) => {
+          if (parseInt(product.id) == parseInt(productLocal.id)) {
+            isExists = true;
+            index = indexP;
+            return;
+          }
+        });
+      isExists
+        ? (cartUser.listProduct[index].quantity += 1)
+        : cartUser.listProduct.push(productLocal);
+    });
+  }
+  // Save local
+  localStorage.setItem("cart", JSON.stringify(cartUser));
+  // Chuyển trang
+  if (user.role === "member") {
+    window.location.href = "home.html";
+  } else {
+    window.location.href = "home-admin.html";
+  }
+}
 if (homeDelUser) {
   homeDelUser.addEventListener("click", (e) => {
     localStorage.removeItem("user");
@@ -108,5 +142,3 @@ if (homeDelUser) {
     window.location.href = "register.html";
   });
 }
-
-//#endregion

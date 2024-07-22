@@ -1,6 +1,4 @@
 let numberCategoryShow = 5;
-let searchName = null;
-let dataCategories = [];
 let linkImgDefault = "/img/logo.png";
 let statusMessage = null;
 let contentMessage = null;
@@ -9,17 +7,16 @@ let typeCategoryData = "Category";
 const storage = firebase.storage();
 let imgPath = "";
 
-getAll(urlCategory, showCategories);
-
 //#region SHOW ALL
 
-function showCategories(data) {
+function showCategories() {
+  let data = dataCategories;
   // GET data status TRUE
   data = data.filter((element) => element.status === true);
   dataCategories = data;
 
   // SEARCH by searchName
-  data = searchData(data, searchName);
+  data = getDataSearch(data, dataSearch.category.text);
 
   // GET data current page
   let dataCurrentPage = getDataCurrentPage(
@@ -54,25 +51,6 @@ function showCategories(data) {
 function changePage(nextPage) {
   currentPage = nextPage;
   getAll(urlCategory, showCategories);
-}
-//#endregion
-
-//#region SEARCH
-const formSearch = document.getElementById("form-search");
-formSearch.addEventListener("submit", (e) => {
-  e.preventDefault();
-  searchName = document.getElementById("search-content").value;
-
-  getAll(urlCategory, showCategories);
-});
-
-function searchData(data, searchName) {
-  if (!searchName) {
-    return data;
-  }
-  return data.filter((element) =>
-    element.name.toLowerCase().includes(searchName.toLowerCase())
-  );
 }
 //#endregion
 

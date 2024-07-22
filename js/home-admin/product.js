@@ -1,18 +1,16 @@
 const numberProductShow = 5;
-let searchProductName = null;
 let typeProductData = "Product";
 let maxLengthText = 20;
 
-getAll(urlProduct, showProducts);
-
 //#region SHOW ALL
 
-function showProducts(data) {
+function showProducts() {
+  let data = dataProducts;
   // GET data status TRUE
   data = data.filter((element) => element.status === true);
 
   // SEARCH by searchName
-  data = searchDataProduct(data, searchProductName);
+  data = getDataSearch(data, dataSearch.product.text);
 
   // GET data current page
   let dataCurrentPage = getDataCurrentPage(
@@ -33,7 +31,7 @@ function showProducts(data) {
     const tr = document.createElement("tr");
     tr.innerHTML = `
           <th scope="row">${index + 1}</th>
-          <td><img src="${item.img}" alt=""></td>
+          <td><div class="td-img"><img src="${item.img}" alt=""></div></td>
           <td class="tooltip-product-name">
             <div class="substring-text">${item.name}</div>
             <div class="tooltip-full-name">${item.name}</div>
@@ -52,26 +50,6 @@ function showProducts(data) {
   });
 }
 
-//#endregion
-
-//#region SEARCH
-const formSearchProduct = document.getElementById("form-search-product");
-formSearchProduct.addEventListener("submit", (e) => {
-  e.preventDefault();
-  searchProductName = document.getElementById("search-product-content").value;
-
-  getAll(urlProduct, showProducts);
-});
-
-function searchDataProduct(data, searchName) {
-  if (!searchName) {
-    return data;
-  }
-  console.log("searchProductName");
-  return data.filter((element) =>
-    element.name.toLowerCase().includes(searchName.toLowerCase())
-  );
-}
 //#endregion
 
 //#region CREATE/EDIT

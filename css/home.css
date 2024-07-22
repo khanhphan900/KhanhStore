@@ -207,19 +207,18 @@ body {
           right: 0;
           overflow: hidden;
           cursor: default;
-
-          li {
-            height: 95px;
-            border-bottom: 1px solid black;
-            img {
-              max-height: 60px;
-              object-fit: contain;
-            }
-            &:last-child {
-              height: 40px;
-              padding: 0px 20px;
-              font-weight: bold;
-              border-bottom: none;
+          .modal-list-product {
+            max-height: 380px;
+            overflow: hidden;
+            overflow-y: auto;
+            padding-right: 15px;
+            li {
+              height: 95px;
+              border-bottom: 1px solid black;
+              img {
+                max-height: 60px;
+                object-fit: contain;
+              }
             }
           }
         }
@@ -244,27 +243,27 @@ body {
   top: 100%;
   right: 0;
   color: black;
-
+  .modal-list-product {
+    max-height: 380px;
+    padding: 0;
+    overflow: hidden;
+    overflow-y: auto;
+    li {
+      height: 95px;
+      border-bottom: 1px solid black;
+      img {
+        max-height: 55px;
+        object-fit: contain;
+      }
+    }
+  }
   .fa-solid {
     cursor: pointer;
     transition: transform 0.1s linear;
+    font-size: 1.4rem;
     &:hover {
       transform: scale(1.2);
       font-size: bold;
-    }
-  }
-  li {
-    height: 95px;
-    border-bottom: 1px solid black;
-    img {
-      max-height: 60px;
-      object-fit: contain;
-    }
-    &:last-child {
-      height: 40px;
-      padding: 0px 20px;
-      font-weight: bold;
-      border-bottom: none;
     }
   }
 }
@@ -420,7 +419,6 @@ main {
       width: 450px;
     }
     .modal-cart {
-      width: 300px;
     }
   }
 
@@ -453,7 +451,6 @@ main {
       width: 300px;
     }
     .modal-cart {
-      width: 300px;
     }
   }
   main {

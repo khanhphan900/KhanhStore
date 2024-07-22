@@ -24,7 +24,8 @@
     referrerpolicy="no-referrer"
     />
 
-    <link rel="stylesheet" href="/css/home-admin.css" />
+    <link rel="stylesheet" href="../css/home-admin/home-admin.css" />
+    <link rel="stylesheet" href="../css/home-admin/product.css">
   </head>
 
   <body>
@@ -32,7 +33,7 @@
     <div class="left">
       <nav>
         <div class="title">
-          <h1><a href="http://127.0.0.1:5500/views/home.html" class="text-white"><i class="fa-solid fa-store"></i> <span class="hidden">STORE</span></a></h1>
+          <h3><a href="http://127.0.0.1:5500/views/home.html" class="text-white"><i class="fa-solid fa-store"></i> <span class="hidden">STORE</span></a></h3>
           <div class="icon">
             <i class="fa-solid fa-bars"></i>
             <i class="fa-solid fa-angles-left hidden"></i>
@@ -54,7 +55,7 @@
           <i class="icon-header fa-solid fa-magnifying-glass"></i>
           
           <span class="bell box-icon">
-            <i class="icon-header fa-solid fa-bell"></i> <span class="icon-num">2</span>
+            <i class="icon-header fa-solid fa-bell"></i> <span class="icon-num text-bell">2</span>
           </span>
           <span class="email box-icon">
             <i class="icon-header fa-solid fa-envelope"></i> <span class="icon-num">8</span>
@@ -90,7 +91,7 @@
               <div class="col-md-4 col-12 h3 m-0 text-lg-start text-center">List Categories</div>
   
               <div class="col-md-4 col-12 p-lg-0 p-2">
-                <form id="form-search" class="d-flex">
+                <form id="form-search-category" class="d-flex">
                 <input id="search-content" class="form-control me-2 p-2" type="search" placeholder="Search name" aria-label="Search">
                 <button id="search-btn" class="btn btn-primary" type="submit">Search</button>
               </form>
@@ -132,7 +133,7 @@
               <div class="col-md-4 col-12 text-lg-end text-center p-2"><button class="btn btn-success"  data-bs-toggle="modal"  data-bs-target="#productAddModal" onclick=handleIdProduct() >Add product</button></div>
           </div>
           <div  class="table-responsive">
-            <table class="table table-hover table-striped mt-3 overflow-scroll overflow-y-auto">
+            <table class="table table-hover table-striped mt-3">
               <thead>
                 <tr>
                   <th scope="col">#</th>
@@ -154,19 +155,23 @@
             </div>
           </div>
         </div>
-        <div class="box box-cutomters">
+        <div class="box box-order">
           <div class="row px-5 py-2 align-items-center">
             <div class="col-md-4 col-12 h3 m-0 text-lg-start text-center">List Order</div>
 
-            <div class="col-md-4 col-12 p-lg-0 p-2">
-              <form id="form-search-product" class="d-flex">
-              <input id="search-product-content" class="form-control me-2 p-2" type="search" placeholder="Search" aria-label="Search">
+            <div class="col-md-6 col-12 p-lg-0 p-2">
+              <form id="form-search-order" class="d-flex">
+              <input id="search-order-name" class="form-control me-2 p-2" type="search" placeholder="Search customer" aria-label="Search">
+              <select id="search-order-logistic" class="form-control">
+                <option value= "" selected>Logistic</option>
+                <option value="Chờ duyệt" class="my-3 py-3 text-danger h6">Chờ duyệt</option>
+                <option value="Shipper" class="text-warning h6">Shipper</option>
+                <option value="Nhận hàng" class="text-success h6">Nhận hàng</option>
+              </select>
               <button class="btn btn-primary" type="submit">Search</button>
             </form>
           </div>
-              <div class="col-md-4 col-12 text-lg-end text-center p-2"><button class="btn btn-success"  data-bs-toggle="modal"  data-bs-target="#productAddModal" onclick=handleIdProduct() >Add product</button></div>
-          </div>
-          <div  class="table-responsive">
+          <div  class="table-responsive mt-2">
             <table class="table table-hover table-striped overflow-scroll overflow-y-auto">
               <thead>
                 <tr>
@@ -348,6 +353,75 @@
     </div>
   </div>
 </div>
+<!-- Modal Order -->
+<div class="modal fade modal-order" id="orderModal" style="--bs-modal-width: 900px" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center w-100" id="orderModalLabel">Thông tin Order</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body row">
+        <div  class="col-lg col-12 table-scroll">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Img</th>
+                <th scope="col">Info</th>
+                <th scope="col">Quantity</th>
+              </tr>
+            </thead>
+            <tbody  class="list-product-order">
+          
+            </tbody>
+          </table>
+        </div>
+        <div class="col-lg col-12 ">
+          <div class="col">
+            <div class="mb-1 row">
+              <div class="col-4 form-label m-0 d-flex align-items-center">Tên:</div>
+              <div id="name-order" class="col-8">
+                Khánh
+              </div>
+            </div>
+            <div class="mb-1 row">
+              <div class="col-4 form-label m-0 d-flex align-items-center">Số điện thoại:</div>
+              <div id="phone-order" class="col-8"></div>
+            </div>
+            <div class="mb-1 row">
+              <div class="col-4 form-label m-0 d-flex align-items-center">Địa chỉ:</div>
+              <div id="address-order" class="col-8"></div>
+            </div>
+            <div class="mb-1 row">
+              <div class="col-4 form-label m-0 d-flex align-items-center">Số lượng SP:</div>
+              <div id="total-order" class="col-8"></div>
+            </div>
+            <div class="mb-1 row">
+              <div class="col-4 form-label m-0 d-flex align-items-center">Tổng tiền:</div>
+              <div id="total-price-order" class="col-8 text-danger h6 m-0"></div>
+            </div>
+            <div class="mb-2 row">
+              <label for="logistic" class="col-4 form-label m-0 d-flex align-items-center">Logistic:</label>
+              <div class="col-8">
+              <select class="form-control text-danger" id="logistic-order"> 
+              </select></div>
+            </div>
+            <div class="mb-1 row">
+              <div class="col-4 form-label m-0 d-flex align-items-center">Pay: </div>
+              <div class="col-8">
+                <select class="form-control text-danger"  id="pay-order"> 
+                </select></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button id="btn-submit-order" type="button" class="btn btn-primary">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
 
     <!-- Firebase App (the core Firebase SDK) -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
@@ -374,11 +448,14 @@
     <script src="../js/api.js"></script>
     <script src="../js/validate-bs5.js"></script>
     <script src="../js/login.js"></script>
-    <script src="../js/home-admin.js"></script>
-    <script src="../js/pagination.js"></script>
-    <script src="../js/home-category.js"></script>
-    <script src="../js/home-product.js"></script>
-    <script src="../js/order.js"></script>
+    <script src="../js/home-admin/home-admin.js"></script>
+    <script src="../js/home-admin/navBar.js"></script>
+    <script src="../js/home-admin/userInfo.js"></script>
+    <script src="../js/home-admin/search.js"></script>
+    <script src="../js/home-admin/pagination.js"></script>
+    <script src="../js/home-admin/category.js"></script>
+    <script src="../js/home-admin/product.js"></script>
+    <script src="../js/home-admin/order.js"></script>
 
   </body>
 </html>

@@ -20,6 +20,11 @@ function displayPagination(typeData, totalPages) {
   );
   pagination.innerHTML = "";
 
+  // No page
+  if (totalPages === 0) {
+    return;
+  }
+  
   // Previous
   const liPre = document.createElement("li");
   liPre.classList.add("page-item");
@@ -68,5 +73,5 @@ function handleProductPage(nextPage) {
 
 function handleOrderPage(nextPage) {
   currentPage = nextPage;
-  getAll(urlUser, showOrders)
+  showOrders();
 }
