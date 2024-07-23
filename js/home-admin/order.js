@@ -20,10 +20,16 @@ let logisticOrders = [
   { name: "Nhận hàng", color: "text-success" },
 ];
 
+//#region  SHOW
 function showOrders() {
   data = dataOrders;
+  let dataProductsTemplate = dataProducts;
+  // Sort Date
+  data = sortOrderDate(data);
 
+  // Show total Chờ duyệt
   showNumberBell(data);
+
   // SEARCH by searchName
   data = getDataSearch(data, dataSearch.order.text);
   let dataCurrentPage = data;
@@ -57,17 +63,14 @@ function showOrders() {
 
     // Find Total Product in Order
     order.listProduct.forEach((productOrder) => {
-      let product = {};
-      dataProducts.forEach((productData) => {
-        if (parseInt(productOrder.id) == parseInt(productData.id)) {
-          product = productData;
+      totalProduct += productOrder.quantity;
+
+      dataProductsTemplate.forEach((p) => {
+        if (p.id == productOrder.id) {
+          totalPrice += productOrder.quantity * p.price;
           return;
         }
       });
-      product.quantity = productOrder.quantity;
-
-      totalProduct += product.quantity;
-      totalPrice += product.quantity * product.price;
     });
 
     let pageCurrent = pageTabCurrent ? pageTabCurrent.textContent : 1;
@@ -82,7 +85,7 @@ function showOrders() {
             <div class="tooltip-full-name">${customerOrder.address}</div>
             </td>
             <td>${customerOrder.phone}</td>
-            <td>${totalProduct}</td>
+            <td>${order.date}</td>
             <td>${changeFormatMoney(totalPrice)}</td>
             <td class="${
               order.logistic.includes("Shipper")
@@ -136,6 +139,15 @@ function changeFormatMoney(price) {
   });
 }
 
+function sortOrderDate(data) {
+  return data.sort((a, b) => parseDate(b.date) - parseDate(a.date));
+}
+
+function parseDate(dateString) {
+  let [day, month, year] = dateString.split("/");
+  return new Date(`${year}-${month}-${day}`);
+}
+
 //#region Modal
 function handleIdOrder(event, idOrder) {
   event.stopPropagation();
@@ -147,8 +159,10 @@ function showModalOrder(idOrder) {
   tbodyListProduct.innerHTML = "";
   let totalProduct = 0;
   let totalPrice = 0;
+  let dataProductsTemplate = dataProducts;
   // Get Order by idOrder
   dataOrder = dataOrders.find((element) => element.id == idOrder);
+
   // Get Customer by dataOrder.idCustomer
   const dataCustomerOrder = dataCustomers.find(
     (element) => element.id == dataOrder.idCustomer
@@ -156,15 +170,18 @@ function showModalOrder(idOrder) {
   // Get list Product Order
   const listProductOrder = [];
   dataOrder.listProduct.forEach((productOrder) => {
-    let infoProduct = dataProducts.find(
+    let infoProduct = dataProductsTemplate.find(
       (product) => product.id == productOrder.id
     );
-    infoProduct.quantity = productOrder.quantity;
-    listProductOrder.push(infoProduct);
+    let clonedProduct = Object.assign({}, infoProduct);
+    clonedProduct.quantity = productOrder.quantity;
+    listProductOrder.push(clonedProduct);
   });
-  dataOrder.listProduct = listProductOrder;
+  let dataOrderNew = dataOrder;
+  dataOrderNew.listProduct = listProductOrder;
+
   // Show Product
-  dataOrder.listProduct.forEach((product) => {
+  dataOrderNew.listProduct.forEach((product) => {
     totalProduct += product.quantity;
     totalPrice += product.price * product.quantity;
 
@@ -248,16 +265,38 @@ logisticOrder.addEventListener("change", () => {
   });
 });
 
+//#region Submit
 const btnSubmitOrder = document.getElementById("btn-submit-order");
 btnSubmitOrder.addEventListener("click", () => {
+  console.log(dataProducts);
   if (!checkLogisticOrder(logisticOrder.value, payOrder.value)) {
     alert("Vui lòng không hack trang web này");
     return;
   }
-  dataOrder.logistic = logisticOrder.value;
-  dataOrder.pay = payOrder.value;
-  updateElement(urlOrder, dataOrder);
-  // showOrders();
+  let dataOrderUpdate = {
+    id: dataOrder.id,
+    listProduct: [],
+    idCustomer: dataOrder.idCustomer,
+    date: dataOrder.date,
+    logistic: logisticOrder.value,
+    pay: parseInt(payOrder.value),
+  };
+  dataOrder.listProduct.forEach((element) => {
+    let product = {
+      id: element.id.toString(),
+      quantity: element.quantity,
+    };
+    dataOrderUpdate.listProduct.push(product);
+  });
+  if (dataOrderUpdate.logistic == "Shipper") {
+    updateProductOrder(-1);
+  }
+  if (dataOrderUpdate.logistic == "Chờ duyệt") {
+    updateProductOrder(1);
+  }
+
+  // Update order
+  updateElement(urlOrder, dataOrderUpdate);
 });
 function checkLogisticOrder(valueLogisticOrder, valuePayOrder) {
   logisticOrders.forEach((element) => {
@@ -271,4 +310,17 @@ function checkLogisticOrder(valueLogisticOrder, valuePayOrder) {
     }
   });
   return true;
+}
+
+function updateProductOrder(numberOrder) {
+  let dataProductsTemplate = dataProducts;
+  dataOrder.listProduct.forEach((productOrder) => {
+    dataProductsTemplate.forEach((product) => {
+      if (product.id == productOrder.id) {
+        product.quantity += productOrder.quantity * numberOrder;
+        updateElement(urlProduct, product);
+        return;
+      }
+    });
+  });
 }

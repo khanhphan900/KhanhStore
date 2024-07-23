@@ -91,8 +91,8 @@ function setupInfoCustomer(totalPrice) {
   addressCustomer.value = dataCustomer.address ? dataCustomer.address : "";
   textTotalPrice.innerHTML = exchangeMoney(totalPrice);
   voucherType.innerHTML = "0 VND";
-  transport.innerHTML = "- 50.000 VND";
-  pay.innerHTML = exchangeMoney(totalPrice - discount - transportFee);
+  transport.innerHTML = "+ 50.000 VND";
+  pay.innerHTML = exchangeMoney(totalPrice - discount + transportFee);
   voucher.addEventListener("change", function (e) {
     e.stopPropagation();
     if (this.value == "999") {
@@ -107,13 +107,15 @@ function setupInfoCustomer(totalPrice) {
   logistic.addEventListener("change", function (e) {
     e.stopPropagation();
     if (this.value == 0) {
-      transport.innerHTML = "- 50.000 VND";
+      transport.innerHTML = "+ 50.000 VND";
       transportFee = 50000;
     } else {
-      transport.innerHTML = "- 30.000 VND";
+      transport.innerHTML = "+ 30.000 VND";
       transportFee = 30000;
     }
-    pay.innerHTML = exchangeMoney(totalPrice - discount - transportFee);
+    console.log(discount);
+    console.log(transportFee);
+    pay.innerHTML = exchangeMoney(totalPrice - discount + transportFee);
   });
 }
 
