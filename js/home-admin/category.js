@@ -29,10 +29,15 @@ function showCategories() {
   const tbodyCategory = document.getElementById("tbody-categories");
   tbodyCategory.innerHTML = "";
 
+  const paginationOrder = document.getElementById("pagination-category");
+  const pageTabCurrent = paginationOrder.querySelector(".active");
+
   dataCurrentPage.forEach((item, index) => {
+    let pageCurrent = pageTabCurrent ? pageTabCurrent.textContent : 1;
+    let stt = (pageCurrent - 1) * numberCategoryShow + index + 1;
     const tr = document.createElement("tr");
     tr.innerHTML = `
-          <th scope="row">${index + 1}</th>
+          <th scope="row">${stt}</th>
           <td><div class="td-img"><img src="${item.logo}"  alt=""><div></td>
           <td>${item.name}</td>
           <td>${item.address}</td>
@@ -185,18 +190,14 @@ function addCategory() {
 //#endregion
 
 //#region DEL-Status
-let idDel = "";
 function handleIdDelCategory(id) {
-  idDel = "";
-  idDel = id;
-  console.log(id);
-  getElementById(urlCategory, idDel, showFormDel);
+  showFormDelCategory(id);
 }
 
-function showFormDel(data) {
+function showFormDelCategory(id) {
   const categoryImgDel = document.getElementById("category-img-del");
   const categoryNameDel = document.getElementById("category-name-del");
-  console.log(data.logo);
+  let data = dataCategories.find((item) => item.id == id);
   categoryImgDel.src = data.logo;
   categoryNameDel.innerText = data.name;
 }

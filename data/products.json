@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "img": "/img/may-lanh-panaso_main_374_450.png",
+        "name": "Inverter 2.5 Hp CU/CS-PU24AKH-8",
+        "quantity": 30,
+        "price": 28590000,
+        "category": "Panasonic",
+        "exists": true
+    },
+    {
+        "id": 2,
+        "img": "/img/smart-tivi-lg-o_main_684_450.png",
+        "name": "Smart Tivi OLED83C3PSA",
+        "quantity": 30,
+        "price": 92990000,
+        "category": "LG",
+        "exists": true
+    },
+    {
+        "id": 3,
+        "img": "/img/iphone-15-pro-m_main_256_450.png",
+        "name": "iPhone 15 Pro Max 256GB Titan Tự Nhiên",
+        "quantity": 30,
+        "price":  29190000 ,
+        "category": "Apple",
+        "exists": true
+    },
+    {
+        "id": 4,
+        "img": "/img/tu-lanh-panason_main_712_450.png",
+        "name": "Inverter 650 Lít PRIME+ Edition NR-WY720ZHHV",
+        "quantity": 30,
+        "price": 124990000 ,
+        "category": "Panasonic",
+        "exists": true
+    },
+    {
+        "id": 5,
+        "img": "/img/may-giat-say-lg_main_186_450.png",
+        "name": "Inverter WashTower Giặt 21 Kg - Sấy 16 Kg WT2116SHEG",
+        "quantity": 30,
+        "price":  45990000 ,
+        "category": "LG",
+        "exists": true
+    },
+    {
+        "id": 6,
+        "img": "/img/tu-lanh-samsung_main_66_450.png",
+        "name": "Inverter Family Hub 641 Lít RS64T5F01B4",
+        "quantity": 30,
+        "price":  12600000 ,
+        "category": "Samsung",
+        "exists": true
+    },
+    {
+        "id": 7,
+        "img": "/img/google-tivi-tcl_main_994_450.png",
+        "name": "Google Tivi QD-Mini LED 98C755",
+        "quantity": 30,
+        "price":  69890000 ,
+        "category": "TCL",
+        "exists": true
+    },
+    {
+        "id": 8,
+        "img": "/img/smart-tivi-sams_main_721_450.png",
+        "name": "Smart Tivi OLED QA77S95C",
+        "quantity": 30,
+        "price":  74990000 ,
+        "category": "Samsung",
+        "exists": true
+    },
+    {
+        "id": 9,
+        "img": "/img/tu-cham-soc-qua_main_789_450.png",
+        "name": "Tủ Chăm Sóc Quần Áo Thông Minh S5GOC",
+        "quantity": 30,
+        "price":  43990000 ,
+        "category": "LG",
+        "exists": true
+    },
+    {
+        "id": 10,
+        "img": "/img/smart-tivi-lg-u_main_466_450.png",
+        "name": "Smart Tivi 75UR8050PSB",
+        "quantity": 30,
+        "price":  20890000 ,
+        "category": "LG",
+        "exists": true
+    }
+]

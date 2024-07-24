@@ -26,6 +26,7 @@ async function getAllData() {
 }
 
 function processData() {
+  showDataGraph();
   showIconUser();
   showCategories();
   showProducts();
@@ -48,16 +49,16 @@ function getDataUser(data) {
   dataUserAdmin = data;
 }
 
-function showMessage(status, message) {
-  const boxMessage = document.getElementById("box-message");
-  switch (status) {
-    case "success":
-      boxMessage.classList.add("success");
-      break;
-    case "danger":
-      boxMessage.classList.add("danger");
-      break;
-  }
-  boxMessage.innerHTML = message;
-  boxMessage.classList.add("active");
-}
+// function showMessage(status, message) {
+//   const boxMessage = document.getElementById("box-message");
+//   switch (status) {
+//     case "success":
+//       boxMessage.classList.add("success");
+//       break;
+//     case "danger":
+//       boxMessage.classList.add("danger");
+//       break;
+//   }
+//   boxMessage.innerHTML = message;
+//   boxMessage.classList.add("active");
+// }

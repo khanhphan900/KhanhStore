@@ -34,7 +34,7 @@
       "id": "4",
       "name": "iPhone 15 Pro Max 256GB",
       "img": "https://cdn.tgdd.vn/Products/Images/42/305658/iphone-15-pro-max-blue-thumbnew-600x600.jpg",
-      "quantity": 17,
+      "quantity": 20,
       "price": 29290000,
       "type": "mobile",
       "category": "Apple",
@@ -64,7 +64,7 @@
       "id": "7",
       "name": "iPad Pro M4 11 inch WiFi 256GB",
       "img": "https://cdn.tgdd.vn/Products/Images/522/325513/ipad-pro-11-inch-m4-wifi-black-thumb-600x600.jpg",
-      "quantity": 19,
+      "quantity": 20,
       "price": 28990000,
       "type": "mobile",
       "category": "Apple",
@@ -391,458 +391,51 @@
       "img": "https://cdn.tgdd.vn/2024/07/banner/6-380x200.jpg"
     }
   ],
-  "customers": [
+  "users": [
     {
-      "id": "1",
+      "id": 1,
       "email": "admin@gmail.com",
-      "img": "https://img.freepik.com/free-vector/flat-design-illustration-customer-support_23-2148887720.jpg?ga=GA1.1.1399812610.1719048527&semt=sph",
+      "img": "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?ga=GA1.1.1399812610.1719048527&semt=sph",
       "password": "123",
-      "role": "admin",
+      "position": "admin",
       "name": "admin",
-      "address": "Số 9, Hùng Vương, Đà Nẵng",
-      "phone": "0905XXXYYY"
+      "cart": []
     },
     {
-      "id": "2",
+      "id": 2,
       "email": "staff@gmail.com",
       "img": "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?ga=GA1.1.1399812610.1719048527&semt=sph",
       "password": "123",
-      "role": "staff",
+      "position": "staff",
       "name": "staff",
-      "address": "Số 9, Hùng Vương, Đà Nẵng",
-      "phone": "0905XXXYYY"
+      "cart": []
     },
     {
-      "id": "3",
+      "id": 3,
       "email": "staff1@gmail.com",
       "img": "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?ga=GA1.1.1399812610.1719048527&semt=sph",
       "password": "123",
-      "role": "staff",
+      "position": "staff1",
       "name": "staff1",
-      "address": "Số 9, Hùng Vương, Đà Nẵng",
-      "phone": "0905XXXYYY"
+      "cart": []
     },
     {
-      "id": "4",
+      "id": 4,
       "email": "khanhphan900@gmail.com",
       "password": "123",
       "img": "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?ga=GA1.1.1399812610.1719048527&semt=sph",
-      "role": "member",
+      "position": "member",
       "name": "khanhphan900",
-      "address": "Số 9, Hùng Vương, Đà Nẵng",
-      "phone": "0905XXXYYY"
+      "cart": []
     },
     {
-      "id": "5",
+      "id": 5,
       "email": "khanhphan901@gmail.com",
-      "password": "123",
+      "password": "1234",
       "img": "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?ga=GA1.1.1399812610.1719048527&semt=sph",
-      "role": "member",
+      "position": "member",
       "name": "khanhphan901",
-      "address": "Số k91/200, Hùng Vương, Hải Châu, Đà Nẵng",
-      "phone": "0905XXXYYY"
-    },
-    {
-      "id": "6",
-      "email": "customer01@gmail.com",
-      "password": "123",
-      "img": "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?ga=GA1.1.1399812610.1719048527&semt=sph",
-      "role": "member",
-      "name": "Cường $",
-      "address": "k255/200 đường Cách mạng tháng 8 - Phường Khuê Trung - Quận Cẩm Lệ - TP Đà Nẵng - Việt Nam",
-      "phone": "123456"
-    },
-    {
-      "id": "7",
-      "email": "customer02@gmail.com",
-      "password": "123",
-      "img": "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?ga=GA1.1.1399812610.1719048527&semt=sph",
-      "role": "member",
-      "name": "Quang Trung",
-      "address": "Viet Nam",
-      "phone": "0774083126"
-    },
-    {
-      "id": "8",
-      "email": "customer03@gmail.com",
-      "password": "123",
-      "img": "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?ga=GA1.1.1399812610.1719048527&semt=sph",
-      "role": "member",
-      "name": "customer03"
-    },
-    {
-      "id": "9",
-      "email": "customer04@gmail.com",
-      "password": "123",
-      "img": "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?ga=GA1.1.1399812610.1719048527&semt=sph",
-      "role": "member",
-      "name": "Hoàng Long",
-      "address": "ĐN",
-      "phone": "1234567"
-    }
-  ],
-  "carts": [
-    {
-      "id": "1",
-      "listProduct": [
-        {
-          "id": 2,
-          "quantity": 2
-        }
-      ]
-    },
-    {
-      "id": "2",
-      "listProduct": []
-    },
-    {
-      "id": "3",
-      "listProduct": []
-    },
-    {
-      "id": "4",
-      "listProduct": [
-        {
-          "id": 4,
-          "quantity": 1
-        },
-        {
-          "id": 3,
-          "quantity": 1
-        }
-      ]
-    },
-    {
-      "id": "5",
-      "listProduct": []
-    },
-    {
-      "id": "6",
-      "listProduct": [],
-      "idCart": "6",
-      "date": "19/07/2024"
-    },
-    {
-      "id": "7",
-      "listProduct": []
-    },
-    {
-      "id": "8",
-      "listProduct": []
-    },
-    {
-      "id": "9",
-      "listProduct": []
-    }
-  ],
-  "orders": [
-    {
-      "id": "1",
-      "listProduct": [
-        {
-          "id": "6",
-          "quantity": 1
-        },
-        {
-          "id": "3",
-          "quantity": 1
-        },
-        {
-          "id": "2",
-          "quantity": 10
-        },
-        {
-          "id": "16",
-          "quantity": 1
-        },
-        {
-          "id": "15",
-          "quantity": 1
-        },
-        {
-          "id": "14",
-          "quantity": 1
-        },
-        {
-          "id": "13",
-          "quantity": 1
-        }
-      ],
-      "idCustomer": "6",
-      "date": "19/01/2024",
-      "logistic": "Chờ duyệt",
-      "pay": 0
-    },
-    {
-      "id": "2",
-      "listProduct": [
-        {
-          "id": "3",
-          "quantity": 1
-        },
-        {
-          "id": "4",
-          "quantity": 1
-        }
-      ],
-      "idCustomer": "6",
-      "date": "19/02/2024",
-      "logistic": "Shipper",
-      "pay": 1
-    },
-    {
-      "id": "3",
-      "listProduct": [
-        {
-          "id": "7",
-          "quantity": 20
-        }
-      ],
-      "idCustomer": "6",
-      "date": "19/02/2024",
-      "logistic": "Nhận hàng",
-      "pay": 1
-    },
-    {
-      "id": "4",
-      "listProduct": [
-        {
-          "id": "8",
-          "quantity": 20
-        }
-      ],
-      "idCustomer": "6",
-      "date": "19/03/2024",
-      "logistic": "Shipper",
-      "pay": 0
-    },
-    {
-      "id": "5",
-      "listProduct": [
-        {
-          "id": 4,
-          "quantity": 3
-        }
-      ],
-      "idCustomer": "6",
-      "date": "19/03/2024",
-      "logistic": "Chờ duyệt",
-      "pay": 0
-    },
-    {
-      "id": "6",
-      "idCustomer": "6",
-      "listProduct": [
-        {
-          "id": "4",
-          "quantity": 3
-        },
-        {
-          "id": "7",
-          "quantity": 1
-        }
-      ],
-      "date": "19/04/2024",
-      "logistic": "Nhận hàng",
-      "pay": 0
-    },
-    {
-      "id": "7",
-      "idCustomer": "6",
-      "listProduct": [
-        {
-          "id": "4",
-          "quantity": 3
-        },
-        {
-          "id": "7",
-          "quantity": 1
-        }
-      ],
-      "date": "19/05/2023",
-      "logistic": "Shipper",
-      "pay": 1
-    },
-    {
-      "id": "8",
-      "idCustomer": "6",
-      "listProduct": [
-        {
-          "id": "4",
-          "quantity": 1
-        },
-        {
-          "id": "7",
-          "quantity": 1
-        }
-      ],
-      "date": "19/06/2024",
-      "logistic": "Shipper",
-      "pay": 0
-    },
-    {
-      "id": "9",
-      "idCustomer": "6",
-      "listProduct": [
-        {
-          "id": 4,
-          "quantity": 3
-        },
-        {
-          "id": 7,
-          "quantity": 1
-        }
-      ],
-      "date": "19/06/2024",
-      "logistic": "Chờ duyệt",
-      "pay": 0
-    },
-    {
-      "id": "10",
-      "listProduct": [
-        {
-          "id": "4",
-          "quantity": 3
-        },
-        {
-          "id": "7",
-          "quantity": 1
-        }
-      ],
-      "idCustomer": "6",
-      "date": "19/07/2024",
-      "logistic": "Shipper",
-      "pay": 0
-    },
-    {
-      "id": "11",
-      "idCustomer": "6",
-      "listProduct": [
-        {
-          "id": 4,
-          "quantity": 3
-        },
-        {
-          "id": 7,
-          "quantity": 1
-        }
-      ],
-      "date": "19/07/2024",
-      "logistic": "Chờ duyệt",
-      "pay": 0
-    },
-    {
-      "id": "12",
-      "idCustomer": "6",
-      "listProduct": [
-        {
-          "id": 4,
-          "quantity": 3
-        },
-        {
-          "id": 7,
-          "quantity": 1
-        }
-      ],
-      "date": "19/07/2024",
-      "logistic": "Chờ duyệt",
-      "pay": 0
-    },
-    {
-      "id": "13",
-      "idCustomer": "9",
-      "listProduct": [
-        {
-          "id": 9,
-          "quantity": 4
-        },
-        {
-          "id": 5,
-          "quantity": 3
-        },
-        {
-          "id": 7,
-          "quantity": 4
-        },
-        {
-          "id": 6,
-          "quantity": 1
-        }
-      ],
-      "date": "20/01/2024",
-      "logistic": "Chờ duyệt",
-      "pay": 0
-    },
-    {
-      "id": "14",
-      "idCustomer": "1",
-      "listProduct": [
-        {
-          "id": 2,
-          "quantity": 4
-        },
-        {
-          "id": 7,
-          "quantity": 1
-        },
-        {
-          "id": 8,
-          "quantity": 1
-        },
-        {
-          "id": 4,
-          "quantity": 2
-        },
-        {
-          "id": 6,
-          "quantity": 1
-        }
-      ],
-      "date": "20/02/2024",
-      "logistic": "Chờ duyệt",
-      "pay": 0
-    },
-    {
-      "id": "15",
-      "idCustomer": "1",
-      "listProduct": [
-        {
-          "id": "16",
-          "quantity": 6
-        },
-        {
-          "id": "15",
-          "quantity": 2
-        }
-      ],
-      "date": "20/03/2024",
-      "logistic": "Shipper",
-      "pay": 0
-    },
-    {
-      "id": "16",
-      "idCustomer": "7",
-      "listProduct": [
-        {
-          "id": 16,
-          "quantity": 1
-        },
-        {
-          "id": 15,
-          "quantity": 2
-        },
-        {
-          "id": 13,
-          "quantity": 1
-        },
-        {
-          "id": 14,
-          "quantity": 1
-        }
-      ],
-      "date": "22/04/2024",
-      "logistic": "Chờ duyệt",
-      "pay": 0
+      "cart": []
     }
   ]
 }

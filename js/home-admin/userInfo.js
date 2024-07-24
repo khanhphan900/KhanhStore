@@ -1,10 +1,8 @@
-//#region InfoUser
+//#region show Icon
 
-// login
-
+const username = document.querySelector(".username");
 function showIconUser() {
   let user = dataUserAdmin;
-  const username = document.querySelector(".username");
   const imgUser = document.getElementById("img-user");
   if (user) {
     username.innerText = user.name;
@@ -14,7 +12,7 @@ function showIconUser() {
   }
 }
 
-// logout
+//#region logout
 const logout = document.querySelector(".logout");
 const infoUser = document.querySelector(".info-user");
 logout.addEventListener("click", (e) => {
@@ -22,20 +20,12 @@ logout.addEventListener("click", (e) => {
   let cartLocal = JSON.parse(localStorage.getItem("cart"));
   // Save Cart user
   updateElement(urlCart, cartLocal);
-
+  console.log("1");
   // remove User local
   localStorage.removeItem("cart");
   // Xóa hiển thị
   username.innerText = "";
   infoUser.style.display = "none";
-
-  // Đổi icon user > login
-  showIconLogin();
-  // Xóa Cart
-  showCart(dropdownMenu);
-
-  // remove User local
-  localStorage.removeItem("cart");
+  
   window.location.href = "login.html";
 });
-//#endregion

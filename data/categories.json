@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Apple",
+        "logo": "/img/apple-logo.png",
+        "address": "Mỹ",
+        "phone": "0905000000",
+        "exists": true
+    },
+    {
+        "id": 2,
+        "name": "LG",
+        "logo": "/img/lg-logo.jpg",
+        "address": "Hàn Quốc",
+        "phone": "0905000001",
+        "exists": true
+    },
+    {
+        "id": 3,
+        "name": "Panasonic",
+        "logo": "/img/Panasonic-Logo.jpg",
+        "address": "Nhật",
+        "phone": "0905000002",
+        "exists": true
+    },
+    {
+        "id": 4,
+        "name": "Samsung",
+        "logo": "/img/samsung-logo.png",
+        "address": "Hàn",
+        "phone": "0905000003",
+        "exists": true
+    },
+    {
+        "id": 5,
+        "name": "TCL",
+        "logo": "/img/tcl-logo.png",
+        "address": "Trung Quốc",
+        "phone": "0905000004",
+        "exists": true
+    }
+]
