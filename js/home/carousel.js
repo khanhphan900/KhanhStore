@@ -164,7 +164,9 @@ function showProduct(data, box) {
       window.location.href = "product.html";
     };
     card.innerHTML = `
-      <img src="${element.img}" class="card-img-top" alt="...">
+    <div class="img-card">
+    <img src="${element.img}" class="card-img-top" alt="...">
+    </div>
       <div class="card-body pb-0">
         <div class="card-title text-center">${element.name}</div>
         <div class="card-content">
@@ -182,3 +184,15 @@ function showProduct(data, box) {
   });
 }
 //#endregion
+
+//#region Show more
+const textShow1 = document.querySelector(".text-show-product");
+const wrapperProduct = document.querySelector(".wrapper-product");
+let numShow = 1;
+textShow1.addEventListener("click", () => {
+  if (numShow > 1) {
+    textShow1.classList.add("d-none");
+  }
+  numShow++;
+  wrapperProduct.style.height = `calc(680px * ${numShow})`;
+});
