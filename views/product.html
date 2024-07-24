@@ -128,7 +128,7 @@
         </div>
       </header>
 
-      <main>
+      <main class="mb-5">
         <div class="container">
           <div class="row">
             <div class="col text-white h5 my-2">
@@ -171,6 +171,7 @@
                 <div class="row">
                   <div class="col">
                     <h3 id="price-product"></h3>
+                    <button class="btn btn-primary text-white" onclick="handleAddCart()">Thêm vào giỏ</button>
                   </div>
                   <div class="col">
                     <h6 class="text-end">Kết thúc sau</h6>
@@ -193,7 +194,10 @@
                       <div class="col-8">
                         <div class="total rounded-1"></div>
                         <div class="current rounded-1"></div>
-                        <div class="text text-black">Còn 7/10 suất</div>
+                        <div class="text text-black">
+                          Còn <span id="total-product">7</span>/<span>20</span>
+                          suất
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -228,6 +232,86 @@
           </div>
         </div>
       </main>
+      <hr />
+      <footer class="container">
+        <div class="row">
+          <div class="col-lg-4 col-6 mb-2">
+            <ul>
+              <li><a href="#">Tìm hiểu mua trả góp</a></li>
+              <li><a href="#">Chính sách bảo hành</a></li>
+              <li><a href="#">Tuyển dụng</a></li>
+              <li><a href="#">Giới thiệu công ty</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-6 mb-2">
+            <ul>
+              <li class="h6">Tổng đài hỗ trợ</li>
+              <li>Gọi mua: <a class="h6">1900 XXX XXX</a></li>
+              <li>Kiếu nại: <a class="h6">1800 XXX XXX</a></li>
+              <li>Bảo hành: <a class="h6">1900 XXX XXX</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-12 mb-2">
+            <div class="row pb-3">
+              <div class="col-4 icon-footer">
+                <i class="fa-brands fa-facebook"></i>
+                <span class="text-icon">3000</span>
+              </div>
+              <div class="col-4 icon-footer">
+                <i class="fa-brands fa-youtube"></i>
+                <span class="text-icon">3000</span>
+              </div>
+              <div class="col-4 icon-footer">
+                <i class="fa-brands fa-facebook-messenger"></i>
+              </div>
+            </div>
+            <div class="row img-footer">
+              <div class="col-4">
+                <div class="img-f">
+                  <img
+                    src="https://www.vietcombank.com.vn/-/media/Project/VCB-Sites/VCB/Home-page/VCB-Logo/Logo-VCB-no-60.png?ts=20240605031450"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="img-f img-arb">
+                  <img
+                    src="https://www.agribank.com.vn/contenthandler/dav/themelist/custom.portal.theme.AGBank/custom/images/logo_agribank.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="img-f">
+                  <img
+                    src="https://acb.com.vn/_next/image?url=%2Fimages%2Flogo.svg&w=256&q=70"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <h5 class="m-0 text-thank">
+                Cảm ơn quý khách đã đến với K-STORE
+              </h5>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <hr />
+          <div class="col-12">
+            <small>
+              © 2018. Công ty cổ phần K-STORE. GPDKKD: 0303217XXX do sở KH & ĐT
+              TP.HCM cấp ngày XX/XX/20XX. GPMXH: 238/GP-BTTTT do Bộ Thông Tin và
+              Truyền Thông cấp ngày XX/XX/20XX. Địa chỉ: XXX Quang Trung,
+              P.Thuận Phươc, Q.Hải Châu, TP.Đà Nẵng. Điện thoại: 028 38125XXX.
+              Email: cskh@k-store.com. Chịu trách nhiệm nội dung: Huỳnh Văn Tốt.
+              Email: hotrotmdt@k-store.com. Xem chính sách sử dụng
+            </small>
+          </div>
+        </div>
+      </footer>
     </div>
     <!-- Modal Cart-->
     <div

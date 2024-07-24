@@ -409,7 +409,68 @@ main {
     right: -10px;
   }
 }
-
+footer {
+  ul {
+    padding: 0;
+    li {
+      padding: 5px 10px;
+      color: white;
+      &:hover {
+        background: orange;
+        border-radius: 10px;
+        color: black;
+      }
+      &:hover a {
+        color: black;
+      }
+      a {
+        color: white;
+      }
+    }
+  }
+  .icon-footer {
+    display: flex;
+    align-items: center;
+    i.fa-brands {
+      font-size: 1.5rem;
+      padding: 3px;
+      background: white;
+      border-radius: 5px;
+    }
+    .fa-facebook {
+      color: blue;
+    }
+    .fa-youtube {
+      color: red;
+    }
+    .fa-facebook-messenger {
+      color: blue;
+    }
+    span {
+      padding-left: 10px;
+      font-size: 1.2rem;
+    }
+  }
+  .img-footer {
+    margin-bottom: 10px;
+    .img-f {
+      padding: 5px;
+      height: 100%;
+      background: white;
+      border-radius: 10px;
+    }
+    .img-arb {
+      padding: 10px;
+      background: #ae1c3f;
+    }
+  }
+  .text-thank {
+    padding: 10px;
+    background: linear-gradient(to top, blue, black, blue);
+    border-radius: 10px;
+    text-align: center;
+  }
+}
 @media screen and (min-width: 769px) {
   .header {
     .row1 {

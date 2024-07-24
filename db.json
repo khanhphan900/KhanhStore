@@ -4,7 +4,7 @@
       "id": "1",
       "name": "Samsung Galaxy M35 5G 8GB/256GB",
       "img": "https://cdn.tgdd.vn/Products/Images/42/323563/samsung-galaxy-m35-5g-xanhdam-thumb-600x600.jpg",
-      "quantity": 20,
+      "quantity": 10,
       "price": 8290000,
       "type": "mobile",
       "category": "Samsung",
@@ -14,7 +14,7 @@
       "id": "2",
       "name": "Samsung Galaxy Z Fold6 5G 12GB/256GB",
       "img": "https://cdn.tgdd.vn/Products/Images/42/320721/samsung-galaxy-z-fold6-xam-thumbn-600x600.jpg",
-      "quantity": 20,
+      "quantity": 0,
       "price": 43990000,
       "type": "mobile",
       "category": "Samsung",
@@ -24,7 +24,7 @@
       "id": "3",
       "name": "OPPO Reno12 F 5G 12GB/256GB",
       "img": "https://cdn.tgdd.vn/Products/Images/42/327190/oppo-reno12-f-5g-cam-thumb-600x600.jpg",
-      "quantity": 20,
+      "quantity": 0,
       "price": 9990000,
       "type": "mobile",
       "category": "OPPO",
@@ -408,9 +408,9 @@
       "img": "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?ga=GA1.1.1399812610.1719048527&semt=sph",
       "password": "123",
       "role": "staff",
-      "name": "staff",
-      "address": "Số 9, Hùng Vương, Đà Nẵng",
-      "phone": "0905XXXYYY"
+      "name": "",
+      "address": "",
+      "phone": ""
     },
     {
       "id": "3",
@@ -468,7 +468,9 @@
       "password": "123",
       "img": "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?ga=GA1.1.1399812610.1719048527&semt=sph",
       "role": "member",
-      "name": "customer03"
+      "name": "Không tên",
+      "address": "FComplex Đ. Nam Kỳ Khởi Nghĩa, Khu đô thị FPT City, Ngũ Hành Sơn, Đà Nẵng",
+      "phone": "0905999123"
     },
     {
       "id": "9",
@@ -486,8 +488,12 @@
       "id": "1",
       "listProduct": [
         {
-          "id": 2,
-          "quantity": 2
+          "id": 4,
+          "quantity": 1
+        },
+        {
+          "id": 6,
+          "quantity": 1
         }
       ]
     },
@@ -842,6 +848,49 @@
       ],
       "date": "22/04/2024",
       "logistic": "Chờ duyệt",
+      "pay": 0
+    },
+    {
+      "id": "17",
+      "listProduct": [
+        {
+          "id": "3",
+          "quantity": 10
+        }
+      ],
+      "idCustomer": "7",
+      "date": "24/07/2024",
+      "logistic": "Shipper",
+      "pay": 0
+    },
+    {
+      "id": "18",
+      "listProduct": [
+        {
+          "id": "2",
+          "quantity": 10
+        },
+        {
+          "id": "1",
+          "quantity": 10
+        }
+      ],
+      "idCustomer": "8",
+      "date": "24/07/2024",
+      "logistic": "Shipper",
+      "pay": 0
+    },
+    {
+      "id": "19",
+      "listProduct": [
+        {
+          "id": "2",
+          "quantity": 10
+        }
+      ],
+      "idCustomer": "1",
+      "date": "24/07/2024",
+      "logistic": "Shipper",
       "pay": 0
     }
   ]

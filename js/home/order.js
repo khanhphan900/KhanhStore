@@ -20,9 +20,9 @@ function submitCart(data) {
   dataCustomer.name = nameCustomer.value;
   dataCustomer.address = addressCustomer.value;
   dataCustomer.phone = phoneCustomer.value;
-  
+
   updateElement(urlCustomer, dataCustomer);
-  
+
   // Create Order
   let order = {};
   order.id = (data.length + 1).toString();
@@ -30,8 +30,8 @@ function submitCart(data) {
   order.listProduct = cart.listProduct;
   order.date = getCurrentDate();
   order.logistic = "Chờ duyệt";
-  order.pay = false;
-  
+  order.pay = 0;
+
   createElement(urlOrder, order);
 
   // Update cart customer

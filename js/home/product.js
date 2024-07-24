@@ -20,7 +20,7 @@ function getDataCustomer(data) {
   showIconCustomer();
 }
 
-let product = JSON.parse(localStorage.getItem("product"));
+let dataProductLocal = JSON.parse(localStorage.getItem("product"));
 
 const typeProduct = document.getElementById("type-product");
 const categoryProduct = document.getElementById("category-product");
@@ -28,12 +28,12 @@ const imgProduct = document.getElementById("img-product");
 const nameProduct = document.getElementById("name-product");
 const priceProduct = document.getElementById("price-product");
 
-typeProduct.innerHTML = product.type;
-categoryProduct.innerHTML = product.category;
-imgProduct.src = product.img;
-nameProduct.innerText = product.name;
+typeProduct.innerHTML = dataProductLocal.type;
+categoryProduct.innerHTML = dataProductLocal.category;
+imgProduct.src = dataProductLocal.img;
+nameProduct.innerText = dataProductLocal.name;
 
-let price = parseInt(product.price).toLocaleString("it-IT", {
+let price = parseInt(dataProductLocal.price).toLocaleString("it-IT", {
   style: "currency",
   currency: "VND",
 });
@@ -56,4 +56,29 @@ function countdown() {
     minute.innerHTML = minutes < 10 ? "0" + minutes : minutes;
     hour.innerHTML = hours < 10 ? "0" + hours : hours;
   }, 1000);
+}
+
+//#region Add Cart
+function handleAddCart() {
+  let cart = JSON.parse(localStorage.getItem("cart"));  
+  if (!cart) {
+    cart = {
+      id: null,
+      listProduct: [],
+    };
+  }
+  let isExists = false;
+  cart.listProduct.forEach((productCart) => {
+    if (productCart.id == dataProductLocal.id) {
+      productCart.quantity += 1;
+      isExists = true;
+    }
+  });
+  if (!isExists) {
+    cart.listProduct.push({ id: dataProductLocal.id, quantity: 1 });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  showCart(dropdownMenu);
 }

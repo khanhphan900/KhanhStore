@@ -2,7 +2,8 @@
 
 let advertisementData = [];
 let indexCurrentCarousel1 = 0;
-function showCarouselAdvert(data) {
+function showCarouselAdvert() {
+  let data = dataAdverts;
   const carousel1Imgs = document.getElementById("carousel-1-imgs");
   const dataCarousel1 = data.splice(0, 6);
   carousel1Imgs.innerHTML = "";
@@ -68,23 +69,27 @@ let infoCarousel = [
     type: "mobile",
     index: 1,
     cardInScreen: 4,
+    totalProduct: 10,
     auto: true,
   },
   {
     type: "product",
     index: 1,
     cardInScreen: 4,
+    totalProduct: 10,
     auto: false,
   },
   {
     type: "laptop",
     index: 1,
     cardInScreen: 4,
+    totalProduct: 10,
     auto: true,
   },
 ];
 
-function showByInfoCarousel(data) {
+function showByInfoCarousel() {
+  let data = dataProducts;
   infoCarousel.forEach((element) => {
     // Show Item Carousel
     const box = document.querySelector(`.box-${element.type}`);

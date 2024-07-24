@@ -109,7 +109,7 @@ function setupCart(data) {
       listProduct: [],
     };
   }
-  if (cartLocal) {
+  if (cartLocal.listProduct) {
     cartLocal.listProduct.forEach((productLocal) => {
       let isExists = false;
       let index = null;

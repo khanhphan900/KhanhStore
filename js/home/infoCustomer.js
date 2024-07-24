@@ -4,6 +4,9 @@ const username = document.querySelector(".username");
 const imgUser = document.getElementById("img-user");
 
 function showIconCustomer() {
+  if (!cart) {
+    return;
+  }
   if (cart.id) {
     username.innerText = dataCustomer.name;
     imgUser.src = dataCustomer.img;

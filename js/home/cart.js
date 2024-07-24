@@ -13,10 +13,14 @@ function showCart(box) {
   let totalPrice = 0;
 
   const cartText = document.querySelector(".cart-text");
-  if (!cart) {
+
+  if (!cart.listProduct.length) {
     cartText.style.display = "none";
+    showTotalPrice.style.display = "none";
+    modalListProduct.style.display = "none";
     return;
   }
+
   cartText.style.display = "block";
   const noProduct = box.querySelector(".no-product");
 
@@ -86,9 +90,9 @@ function setupInfoCustomer(totalPrice) {
   const pay = document.getElementById("pay");
   // voucher.addEventListener("")
 
-  nameCustomer.value = dataCustomer.name;
-  phoneCustomer.value = dataCustomer.phone ? dataCustomer.phone : "";
-  addressCustomer.value = dataCustomer.address ? dataCustomer.address : "";
+  nameCustomer.value = dataCustomer ? dataCustomer.name : "";
+  phoneCustomer.value = dataCustomer ? dataCustomer.phone : "";
+  addressCustomer.value = dataCustomer ? dataCustomer.address : "";
   textTotalPrice.innerHTML = exchangeMoney(totalPrice);
   voucherType.innerHTML = "0 VND";
   transport.innerHTML = "+ 50.000 VND";
@@ -113,8 +117,6 @@ function setupInfoCustomer(totalPrice) {
       transport.innerHTML = "+ 30.000 VND";
       transportFee = 30000;
     }
-    console.log(discount);
-    console.log(transportFee);
     pay.innerHTML = exchangeMoney(totalPrice - discount + transportFee);
   });
 }
