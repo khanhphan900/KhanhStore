@@ -23,7 +23,6 @@ let logisticOrders = [
 //#region  SHOW
 function showOrders() {
   data = dataOrders;
-  console.log(dataOrders);
   let dataProductsTemplate = dataProducts;
   // Sort Date
   data = sortOrderDate(data);

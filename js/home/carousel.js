@@ -190,7 +190,7 @@ const textShow1 = document.querySelector(".text-show-product");
 const wrapperProduct = document.querySelector(".wrapper-product");
 let numShow = 1;
 textShow1.addEventListener("click", () => {
-  if (numShow > 1) {
+  if (numShow >= dataProducts.length/8-1) {
     textShow1.classList.add("d-none");
   }
   numShow++;

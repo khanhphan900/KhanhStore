@@ -44,9 +44,9 @@ function showCategories() {
           <td>${item.phone}</td>
           <td>
             <i class="fa-solid fa-pen-to-square text-warning h4" data-bs-toggle="modal" data-bs-target="#categoryAddModal" 
-              onclick=handleIdEditCategory(${item.id})></i>
+              onclick=handleIdEditCategory('${item.id}')></i>
             <i class="fa-solid fa-trash text-danger h4" data-bs-toggle="modal"  data-bs-target="#deleteCategory" 
-              onclick=handleIdDelCategory(${item.id})></i>
+              onclick=handleIdDelCategory('${item.id}')></i>
           </td> 
       `;
     tbodyCategory.appendChild(tr);
@@ -59,9 +59,15 @@ function changePage(nextPage) {
 }
 //#endregion
 
-//#region CREATE/EDIT
+//#region show Form
 function handleIdEditCategory(id) {
-  getElementById(urlCategory, id, showCategoryForm);
+  let dataCategory = null;
+  if (id) {
+    dataCategory = dataCategories.find(
+      (item) => item.id.toString() === id.toString()
+    );
+  }
+  showCategoryForm(dataCategory);
 }
 
 function showCategoryForm(element = null) {
@@ -110,46 +116,10 @@ function clearForm() {
   phoneCategory.value = "";
 }
 
-function addRequired(input, status) {
-  if (!status) {
-    input.removeAttribute("required");
-  } else {
-    input.setAttribute("required", "required");
-  }
-}
-
-function handleFileChange(event) {
-  const file = event.target.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      document.getElementById("img-category").src = e.target.result;
-    };
-    reader.readAsDataURL(file);
-  }
-}
-
-function uploadImage() {
-  const file = document.getElementById("input-file-category").files[0];
-  if (file) {
-    imgPath = "images/" + file.name;
-    const storageRef = storage.ref(imgPath);
-    const uploadTask = storageRef.put(file);
-
-    uploadTask.on("state_changed", function () {
-      // Thẻ hiển thị hoàn thành upload thành công
-      uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
-        console.log("Upload successful!");
-      });
-    });
-  } else {
-    console.log("No file selected");
-  }
-}
-
+//#region Add
 function addCategory() {
   const formCategory = document.getElementById("form-category");
-  formCategory.addEventListener("submit", function (e) {
+  formCategory.addEventListener("submit", async function (e) {
     e.preventDefault();
 
     // Check validated
@@ -157,46 +127,48 @@ function addCategory() {
       console.log("Lỗi validated");
       return;
     }
-
     const categoryId = document.getElementById("id-category").value;
     const categoryImg = document.getElementById("img-category").src;
     const categoryName = document.getElementById("name-category").value;
     const categoryAddress = document.getElementById("address-category").value;
     const categoryPhone = document.getElementById("phone-category").value;
 
+    // Get Url Firebase
+    let imgUrl = await uploadImage("category");
+    imgUrl = imgUrl ? imgUrl : categoryImg;
+
     const categoryElement = {
       id: categoryId,
       name: categoryName,
-      logo: categoryImg,
+      logo: imgUrl,
       address: categoryAddress,
       phone: categoryPhone,
       status: true,
     };
 
-    // Create or Update
+    // // Create or Update
     if (!categoryElement.id) {
+      categoryElement.id = uuid.v4();
       createElement(urlCategory, categoryElement);
     } else {
       updateElement(urlCategory, categoryElement);
     }
-
-    // Save img firebase
-    uploadImage();
-
-    // Show all
-    getAll(urlCategory, showCategories);
   });
 }
 //#endregion
 
 //#region DEL-Status
+let idDel = "";
+
 function handleIdDelCategory(id) {
+  idDel = id;
   showFormDelCategory(id);
 }
 
 function showFormDelCategory(id) {
   const categoryImgDel = document.getElementById("category-img-del");
   const categoryNameDel = document.getElementById("category-name-del");
+
   let data = dataCategories.find((item) => item.id == id);
   categoryImgDel.src = data.logo;
   categoryNameDel.innerText = data.name;
@@ -204,7 +176,6 @@ function showFormDelCategory(id) {
 
 function handleDelCategory() {
   deleteStatus(urlCategory, idDel);
-  // Show all
-  getAll(urlCategory, showCategories);
+  idDel = "";
 }
 //#endregion

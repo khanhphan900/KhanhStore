@@ -19,3 +19,12 @@
     );
   });
 })();
+
+// #region Setting required
+function addRequired(input, status) {
+  if (!status) {
+    input.removeAttribute("required");
+  } else {
+    input.setAttribute("required", "required");
+  }
+}

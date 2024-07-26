@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const navUl = document.querySelector(".nav-lists");
 
   faBars.addEventListener("click", () => {
-    navUl.classList.toggle("nav-lists");
+    navUl.classList.toggle("hello");
     navSpans.forEach((element) => element.classList.toggle("hidden"));
   });
   //#endregion
